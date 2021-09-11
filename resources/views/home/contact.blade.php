@@ -401,10 +401,7 @@
                         <li href="/#C4">
                             <a class="dropdown">Services</a>
                         </li>
-                        <li href="locations.html">
-                            <a class="dropdown">Departments</a>
-                        </li>
-                        <li href="Cities.html">
+                        <li href="/#C3">
                             <a class="dropdown">Our Doctors</a>
                         </li>
                         <li href="{{ route('home.contact') }}">
@@ -449,19 +446,16 @@
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-5" style="padding-left:0px;">
                     <ul class="main_menu clearfix">
                         <a href="{{ route('home.index') }}">
-                            <li class="listitemsecandarynav1 dropdown active">Home</li>
+                            <li class="listitemsecandarynav dropdown drop-home">Home</li>
                         </a>
                         <a href="/#C4">
                             <li class="listitemsecandarynav dropdown drop-home">Services</li>
                         </a>
-                        <a href="locations.html">
-                            <li class="listitemsecandarynav dropdown drop-home">Departments</li>
-                        </a>
-                        <a href="cities.html">
+                        <a href="/#C3">
                             <li class="listitemsecandarynav dropdown drop-home">Our Doctors</li>
                         </a>
                         <a href="{{ route('home.contact') }}">
-                            <li class="listitemsecandarynav dropdown drop-home">Contact Us</li>
+                            <li class="listitemsecandarynav1 dropdown  active">Contact Us</li>
                         </a>
                         <a data-toggle="modal" data-target="#formDonate">
                             <li class="listitemsecandarynav dropdown drop-home btn_login"

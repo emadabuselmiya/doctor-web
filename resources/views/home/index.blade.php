@@ -401,10 +401,7 @@
                         <li href="#C4">
                             <a class="dropdown">Services</a>
                         </li>
-                        <li href="locations.html">
-                            <a class="dropdown">Departments</a>
-                        </li>
-                        <li href="Cities.html">
+                        <li href="#C3">
                             <a class="dropdown">Our Doctors</a>
                         </li>
                         <li href="{{ route('home.contact') }}">
@@ -456,10 +453,7 @@
                         <a href="#C4">
                             <li class="listitemsecandarynav dropdown drop-home">Services</li>
                         </a>
-                        <a href="locations.html">
-                            <li class="listitemsecandarynav dropdown drop-home">Departments</li>
-                        </a>
-                        <a href="cities.html">
+                        <a href="#C3">
                             <li class="listitemsecandarynav dropdown drop-home">Our Doctors</li>
                         </a>
                         <a href="{{ route('home.contact') }}">
@@ -548,7 +542,7 @@
         <!--End Slider-->
 
         <!--Start Content-->
-        <div class="container con-content">
+        <div class="container con-content" id="C3">
             <div class="row row-heading-content">
                 <div class="col-xs-12">
                     <h3 class="heading-of-content">our doctors staff</h3>
