@@ -20,6 +20,15 @@ class AlterContactsTable extends Migration
             $table->string('instagram')->nullable()->after('facebook');
             $table->string('twitter')->nullable()->after('instagram');
         });
+
+        \Illuminate\Support\Facades\DB::table('contacts')->insert([
+            'address' => 'Palestine, Gaza',
+            'postal_code' => '711226',
+            'phone' => '+970592606619',
+            'email' => 'emadabuselmiya@gmail.com',
+            'ftime' => '08:38',
+            'ltime' => '18:39',
+        ]);
     }
 
     /**

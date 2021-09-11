@@ -23,6 +23,7 @@ class CreateContactsTable extends Migration
             $table->string('ltime')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
