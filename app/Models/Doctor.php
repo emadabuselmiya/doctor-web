@@ -20,11 +20,20 @@ class Doctor extends Model
         );
     }
 
+    public function appointments()
+    {
+        return $this->hasMany(
+            Appointment::class,
+            'doctor_id',
+            'id'
+        );
+    }
+
     public function getImageUrlAttribute($value)
     {
         if ($this->image) {
             return asset('images/' . $this->image);
         }
-        return '';
+        return asset('images/default-image.jpg');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Contact;
+use App\Models\Settings;
 use Illuminate\Support\Facades\Storage;
 
 class ContactsController extends Controller
@@ -57,16 +57,16 @@ class ContactsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Settings $contact)
     {
-        $contacts = Contact::all();
+        $contacts = Settings::all();
         if (!isset($contacts)) {
-            $con = new Contact();
+            $con = new Settings();
             $con->save();
         }
         return view('admin.contact.edit', [
             'contact' => $contact,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -78,7 +78,7 @@ class ContactsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, Settings $contact)
     {
         $request->validate([
             'email' => 'email',

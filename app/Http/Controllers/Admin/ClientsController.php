@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use App\Models\Contact;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,7 +25,7 @@ class ClientsController extends Controller
         return view('admin.client.index', [
             'clients' => $client,
             'filters' => $request->all(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -39,7 +39,7 @@ class ClientsController extends Controller
     {
         return view('admin.client.create', [
             'client' => new Client(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -94,7 +94,7 @@ class ClientsController extends Controller
     {
         return view('admin.client.edit', [
             'client' => $client,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }

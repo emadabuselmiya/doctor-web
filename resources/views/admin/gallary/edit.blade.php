@@ -4,16 +4,25 @@
 
 
 @section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
 
-        {{-- <h1>Edit Product</h1> --}}
+                <div class="card">
+                    <div class="card-body">
+                        <x-alerts/>
+                        <form action="{{ route('admin.gallaries.update' ,[$gallary->id]) }}" method="post"
+                              enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
 
-        <form action="{{ route('admin.gallaries.update' ,[$gallary->id]) }}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-
-           @include('admin.gallary._form')
-          </form>
-
+                            @include('admin.gallary._form')
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 

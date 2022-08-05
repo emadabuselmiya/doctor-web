@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Settings;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,7 @@ class SlidersController extends Controller
         return view('admin.slider.index', [
             'sliders' => $sliders,
             'filters' => $request->all(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -42,7 +42,7 @@ class SlidersController extends Controller
         return view('admin.slider.create', [
             'slider' => new Slider(),
             'status' => $status,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -98,7 +98,7 @@ class SlidersController extends Controller
         return view('admin.slider.edit', [
             'slider' => $slider,
             'status' => $status,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }

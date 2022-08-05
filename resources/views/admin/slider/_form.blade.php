@@ -30,8 +30,7 @@
 
 <div class="mb-3">
     <label for="image" class="form-label">Image</label>
-    {{-- <img src="{{ $slider->image_url }}" alt="" height="200" width="200" class="d-block"> --}}
-    <img src="{{ $slider->image_url ?? 'images/default-image.jpg'}}" id="output"  height="200" class="d-block"/>
+    <img src="{{ $slider->image_url }}" id="output"  height="200" class="d-block m-3"/>
     <input type="file" class="form-control @error('image') is-invalid @enderror" onchange="loadFile(event)"  id="image" name="image">
 
     @error('image')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Settings;
 use App\Models\Doctor;
 use App\Models\Gallary;
 use App\Models\Service;
@@ -29,7 +29,7 @@ class ServicesController extends Controller
         return view('admin.service.index', [
             'services' => $services,
             'filters' => $request->all(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -43,7 +43,7 @@ class ServicesController extends Controller
     {
         return view('admin.service.create', [
             'service' => new Service(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -99,7 +99,7 @@ class ServicesController extends Controller
     {
         return view('admin.service.edit', [
             'service' => $service,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }

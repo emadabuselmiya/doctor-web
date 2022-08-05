@@ -25,6 +25,6 @@ class Gallary extends Model
         if ($this->image) {
             return asset('images/' . $this->image);
         }
-        return '';
+        return asset('images/default-image.jpg');
     }
 }

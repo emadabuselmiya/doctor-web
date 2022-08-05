@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Settings;
 use App\Models\Gallary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,7 @@ class GallariesController extends Controller
         return view('admin.gallary.index', [
             'gallaries' => $gallaries,
             'filters' => $request->all(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -42,7 +42,7 @@ class GallariesController extends Controller
         return view('admin.gallary.create', [
             'gallary' => new Gallary(),
             'status' => $status,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -98,7 +98,7 @@ class GallariesController extends Controller
         return view('admin.gallary.edit', [
             'gallary' => $gallary,
             'status' => $status,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }

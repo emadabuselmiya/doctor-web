@@ -22,7 +22,7 @@
     z-index: 2;
 }
 .card_top{
-    background-color: #FB4444;
+    background-color: #204073;
     color: antiquewhite;
     margin-bottom: 20px;
 	height: 50px;
@@ -35,7 +35,7 @@
 .main_menu{
     background-color: #ffffff;
     border-color: #ffffff;
-    color: #db482e;
+    color: #204073;
     padding-left: 0px;
     margin-left: 0px;
 }
@@ -44,12 +44,12 @@
     font-weight: bold;
 }
 .btn-link:hover{
-    color:#db482e;
+    color:#204073;
     font-weight: bold;
 }
 
 .badge-pill{
-    background-color: #db482e;
+    background-color: #204073;
 }
 .list-groupm, .list-group-item, .btn-linkو .card{
     border-width: 0px;
@@ -64,10 +64,10 @@
     border-style: none;
 }
 hr{
-    color: #db482e;
+    color: #204073;
 }
 .main_tap{
-    background-color: #FB4444;
+    background-color: #204073;
     color: #ffffff;
     width: 100%;
 }
@@ -120,7 +120,7 @@ body{
     min-height:500px;
 }
 .aactive{
-  color:red;
+  color:#204073;
 }
 .first_nav{
     min-height:45px;
@@ -822,7 +822,7 @@ html.menu-toggle{
 /**End First Section**/
 
 .first-section{
-	background:#800000;
+	background:#204073;
 	height: 50px;
 	padding-top:7px;
 }
@@ -1140,7 +1140,7 @@ html.menu-toggle{
     float: left;
 	margin-right: 20px;
 }
-/**End Contact US**/
+/**End Settings US**/
 .footer{
 	background: #efefef;
     padding: 35px;
@@ -1256,7 +1256,7 @@ html.menu-toggle{
 	background:rgba(0,0,0,0.5);
 }
 .heading-services{
-	color: #800000;
+	color: #204073;
     font-size: 30px;
     padding: 100px;
     position: relative;
@@ -1268,7 +1268,7 @@ html.menu-toggle{
 }
 .row-services h4{
 	font-size:20px;
-	color:#800000;
+	color:#204073;
 }
 .row-services h5{
 	color: #707977;
@@ -1281,7 +1281,7 @@ html.menu-toggle{
 	margin-bottom:20px;
 }
 .row-contactus .icon{
-	background: #E3C7C7;
+	background: rgba(32, 64, 115, 0.43);
     padding: 20px;
     border-radius: 50%;
     color: #fff;
@@ -1308,7 +1308,7 @@ html.menu-toggle{
 }
 .btn-contactpage {
     width: 97%;
-    background: #800000;
+    background: #204073;
     color: #fff;
     font-weight: 600;
     font-size: 16px;

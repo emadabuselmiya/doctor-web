@@ -42,7 +42,7 @@
 
 <div class="mb-3">
     <label for="image" class="form-label">Image</label>
-    <img id="output" src="{{ $service->image_url ?? 'images/default-image.jpg'}}" alt="" height="200" class="d-block">
+    <img id="output" src="{{ $service->image_url }}" alt="" height="200" class="d-block m-3">
     <input type="file" class="form-control @error('image') is-invalid @enderror" onchange="loadFile(event)" name="image">
 
     @error('image')

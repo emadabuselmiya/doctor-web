@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class Settings extends Model
 {
     use HasFactory;
+
+    protected $table = 'contacts';
 
     protected $fillable = [
         'address', 'postal_code', 'phone', 'email', 'ftime', 'ltime',
@@ -19,7 +21,7 @@ class Contact extends Model
         if ($this->logo) {
             return asset('images/' . $this->logo);
         }
-        return 'assets/images/logo.png';
+        return asset('images/default-image.jpg');
     }
 
     public function getBackgroundUrlAttribute($value)
@@ -27,6 +29,6 @@ class Contact extends Model
         if ($this->background) {
             return asset('images/' . $this->background);
         }
-        return '';
+        return asset('images/default-image.jpg');
     }
 }

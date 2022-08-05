@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Settings;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,7 @@ class DoctorsController extends Controller
         return view('admin.doctor.index', [
             'doctors' => $doctor,
             'filters' => $request->all(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -40,7 +40,7 @@ class DoctorsController extends Controller
     {
         return view('admin.doctor.create', [
             'doctor' => new Doctor(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }
@@ -96,7 +96,7 @@ class DoctorsController extends Controller
     {
         return view('admin.doctor.edit', [
             'doctor' => $doctor,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
 
         ]);
     }

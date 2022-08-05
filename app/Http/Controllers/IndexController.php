@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Client;
-use App\Models\Contact;
+use App\Models\Settings;
 use App\Models\Doctor;
 use App\Models\Gallary;
 use App\Models\Message;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\User;
+use App\Notifications\AppointmentsAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -21,7 +24,7 @@ class IndexController extends Controller
     {
         $contacts = DB::table('contacts')->count();;
         if ($contacts == 0) {
-            $con = new Contact();
+            $con = new Settings();
             $con->save();
         }
         return view('home.index', [
@@ -29,8 +32,9 @@ class IndexController extends Controller
             'services' => Service::paginate(4),
             'doctors' => Doctor::paginate(5),
             'gallaries' => Gallary::where('status', '=', 'active')->paginate(4),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
             'clients' => Client::paginate(5),
+            'doctors_all' => Doctor::all(),
         ]);
     }
 
@@ -38,13 +42,15 @@ class IndexController extends Controller
     {
         $contacts = DB::table('contacts')->count();;
         if ($contacts == 0) {
-            $con = new Contact();
+            $con = new Settings();
             $con->save();
         }
         return view('home.contact', [
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
             'gallaries' => Gallary::where('status', '=', 'active')->paginate(4),
             'doctors' => Doctor::paginate(5),
+            'doctors_all' => Doctor::all(),
+
         ]);
     }
 
@@ -52,14 +58,16 @@ class IndexController extends Controller
     {
         $contacts = DB::table('contacts')->count();;
         if ($contacts == 0) {
-            $con = new Contact();
+            $con = new Settings();
             $con->save();
         }
         return view('home.services', [
             'services' => Service::paginate(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
             'gallaries' => Gallary::where('status', '=', 'active')->paginate(4),
             'doctors' => Doctor::paginate(5),
+            'doctors_all' => Doctor::all(),
+
 
         ]);
     }
@@ -70,9 +78,11 @@ class IndexController extends Controller
         $service = Service::findOrFail($id);
         return view('home.services', [
             'service' => $service,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
             'gallaries' => Gallary::where('status', '=', 'active')->paginate(4),
             'doctors' => Doctor::paginate(5),
+            'doctors_all' => Doctor::all(),
+
         ]);
     }
 
@@ -92,16 +102,25 @@ class IndexController extends Controller
     public function storeAppointment(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:255',
             'phone' => 'required|numeric',
-            'phone' => 'numeric',
-            'email' => 'required|email',
+            'age' => 'required|numeric|max:255',
+            'gender' => 'required|string|max:255',
+            'email' => 'required|email|string|max:255',
         ]);
+        $body = "name: " . $request->name . "\n age: " . $request->age . "\n gender: " . $request->gender . "\n Description of the health condition:  " . $request->resone;
+
+        $users = User::all();
+        foreach ($users as $user) {
+            Mail::to($user->email)->send(new \App\Mail\Appointment($body));
+        }
+
+        Mail::to($request->email)->send(new \App\Mail\Appointment($body));
 
         Appointment::create($request->all());
         return redirect()
             ->back()
-            ->with('success', "Appointment Created");
+            ->with('success', "Appointment booked successfully, Check Your Email");
     }
 
 

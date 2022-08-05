@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
-use App\Models\Contact;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class AppointmentsController extends Controller
@@ -26,7 +26,7 @@ class AppointmentsController extends Controller
         return view('admin.appointment.index', [
             'appointments' => $appointments,
             'filters' => $request->all(),
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
         ]);
     }
 
@@ -41,14 +41,14 @@ class AppointmentsController extends Controller
         return view('admin.appointment.create', [
             'appointment' => new Appointment(),
             'genders' => $genders,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -68,23 +68,25 @@ class AppointmentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Appointment $appointment)
     {
+        $appointment->update(['status' => 1]);
+
         $genders = ['male', 'female'];
         return view('admin.appointment.show', [
             'appointment' => $appointment,
             'genders' => $genders,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Appointment $appointment)
@@ -93,15 +95,15 @@ class AppointmentsController extends Controller
         return view('admin.appointment.edit', [
             'appointment' => $appointment,
             'genders' => $genders,
-            'contacts' => Contact::first(),
+            'contacts' => Settings::first(),
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Appointment $appointment)
@@ -122,7 +124,7 @@ class AppointmentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Appointment $appointment)

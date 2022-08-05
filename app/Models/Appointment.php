@@ -10,6 +10,20 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'age', 'gender', 'phone', 'email', 'resone',
+        'name', 'age', 'gender', 'phone', 'email', 'resone', 'status', 'doctor_id'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(
+            Doctor::class,
+            'doctor_id',
+            'id'
+        );
+    }
+
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email;
+    }
 }

@@ -22,7 +22,6 @@ Route::get('/', 'IndexController@index')->name('home.index');
 Route::get('/contact', 'IndexController@contact')->name('home.contact');
 Route::get('/services/{id}', 'IndexController@show')->name('home.services.show');
 
-Route::get('/admin/dachoard', 'IndexController@dachoard')->name('dachoard')->middleware(['auth', 'verified']);
 Route::get('/admin/profile', 'IndexController@profile')->middleware(['auth', 'verified']);
 
 
@@ -36,9 +35,10 @@ Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
     'as' => 'admin.',
-    // 'middleware' => ['auth', 'verified'],
+     'middleware' => ['auth'],
 
 ], function () {
+    Route::resource('/users', 'UsersController');
     Route::resource('/sliders', 'SlidersController');
     Route::resource('/services', 'ServicesController');
     Route::resource('/doctors', 'DoctorsController');
@@ -50,7 +50,7 @@ Route::group([
     Route::delete('/sliders', 'SlidersController@delete')->name('sliders.delete');
     Route::delete('/gallaries', 'GallariesController@delete')->name('gallaries.delete');
 
-    Route::get('/dachoard', 'AdminController@dachoard')->name('dachoard');
+    Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::get('/profile', 'AdminController@profile')->name('profile');
 });
 // Route::get('/', function () {
