@@ -53,8 +53,8 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required|min:100',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|min:10',
             'image' => 'required|mimes:png,jpeg,bmp,jpg|max:1024000',
         ]);
 

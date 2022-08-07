@@ -22,8 +22,4 @@ class Appointment extends Model
         );
     }
 
-    public function routeNotificationForMail($notification)
-    {
-        return $this->email;
-    }
 }

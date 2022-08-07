@@ -1,9 +1,3 @@
-@if ($errors->any())
-    <div class="alert alert-danger">
-        Error
-    </div>
-@endif
-
 
 <div class="mb-3">
     <label for="name" class="form-label">Name</label>
